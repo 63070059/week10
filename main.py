@@ -20,7 +20,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 class ImageRequest(BaseModel):
     image: str
     name: str
