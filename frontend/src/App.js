@@ -27,7 +27,6 @@ const handleImageProcessing = async () => {
     }
   };
 };
-
   return (
     <div className="App">
       <header className="App-header">
