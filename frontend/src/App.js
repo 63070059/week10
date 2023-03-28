@@ -11,7 +11,7 @@ function App() {
 
   const handleImageProcessing = async () => {
     const formData = new FormData();
-    formData.append('image', image);
+    formData.append("processed_image", image);
     formData.append('name', 'John');
     formData.append('surname', 'Doe');
     formData.append('numbers', JSON.stringify([1, 2, 3, 4, 5]));
