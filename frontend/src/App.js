@@ -9,7 +9,6 @@ function App() {
     setImage(event.target.files[0]);
   };
 
-  
 const handleImageProcessing = async () => {
   const reader = new FileReader();
   reader.readAsDataURL(image);
