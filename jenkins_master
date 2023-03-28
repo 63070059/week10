@@ -52,7 +52,7 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_CREDENTIALS_ID = "my-docker-credentials"
+        DOCKER_CREDENTIALS_ID = "docker"
         DOCKER_COMPOSE_FILE = 'docker-compose.yml'
     }
     stages {
