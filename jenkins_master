@@ -52,6 +52,7 @@ pipeline {
     agent any
     
     environment {
+        DOCKER_CREDENTIALS_ID = "my-docker-credentials"
         DOCKER_COMPOSE_FILE = 'docker-compose.yml'
     }
     stages {
@@ -71,7 +72,10 @@ pipeline {
         stage('Push Images') {
             steps {
                 echo 'Pushing Images'
-                sh 'docker-compose -f ${DOCKER_COMPOSE_FILE} push'
+                withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDENTIALS_ID}", usernameVariable: 'DOCKER_USERNAME', passwordVariable: 'DOCKER_PASSWORD')]) {
+                    sh 'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}'
+                    sh 'docker-compose -f ${DOCKER_COMPOSE_FILE} push'
+                }
             }
         }
     }
