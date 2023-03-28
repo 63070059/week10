@@ -1,18 +1,18 @@
-pipeline {
-    agent any
+// pipeline {
+//     agent any
 
-    stages {
-        stage('test slave') {
-            steps {
-                echo 'Test Slave'
-            }
-        }
-        stage('Pull Docker') {
-            steps {
-                sh 'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}'
-                sh 'docker pull nattapat34/my-app-frontend:lastest'
-                sh 'docker pull nattapat34/my-app-backend:lastest'
-            }
-        }
-    }
-}
+//     stages {
+//         stage('test slave') {
+//             steps {
+//                 echo 'Test Slave'
+//             }
+//         }
+//         stage('Pull Docker') {
+//             steps {
+//                 sh 'docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}'
+//                 sh 'docker pull nattapat34/my-app-frontend:lastest'
+//                 sh 'docker pull nattapat34/my-app-backend:lastest'
+//             }
+//         }
+//     }
+// }
