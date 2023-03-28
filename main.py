@@ -11,7 +11,7 @@ from typing import List
 app = FastAPI()
 
 # Set up CORS
-origins = ["http://localhost", "http://localhost:3000"]
+origins = ["http://localhost", "http://localhost:3000", "http://3.85.108.108:5000" ]
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
