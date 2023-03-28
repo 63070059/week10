@@ -61,7 +61,6 @@ pipeline {
                 sh "docker-compose down --rmi all --volumes || true"
                 }
             }
-        }
 
 
         stage('Build Stage') {
@@ -70,8 +69,5 @@ pipeline {
                     sh "docker-compose up -d"
                 }
         }
-
-    
-       
-
     }
+}
