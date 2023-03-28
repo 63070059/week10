@@ -8,7 +8,7 @@ pipeline {
 
         DOCKER_IMAGE_NAME1     = "fast-api-docker_lab5"
         DOCKER_IMAGE_NAME2     = "frontend"
-        
+
         PORT_BACKEND           = "8088"
         PORT_FRONTEND          = "5000"
     }
@@ -26,14 +26,15 @@ pipeline {
 
         stage('Build Stage') {
             steps {
-                echo "Current path is ${pwd()}"
-                sh "docker build -t ${DOCKER_IMAGE_NAME1} ."
+                step {
+                    echo "Current path is ${pwd()}"
+                    sh "docker build -t ${DOCKER_IMAGE_NAME1} ."
                 }
-            steps{
-                dir('frontend'){
-                echo "Current path is ${pwd()}"
-                sh "docker build -t ${DOCKER_IMAGE_NAME2}"
-                } 
+                step {
+                    dir('frontend')
+                    echo "Current path is ${pwd()}"
+                    sh "docker build -t ${DOCKER_IMAGE_NAME2}"
+                }
             }
             }
         }
