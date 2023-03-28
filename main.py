@@ -43,7 +43,6 @@ def apply_canny(image):
     edges = cv2.Canny(gray, 100, 200)
     return edges
 
-
 @app.post("/process-image")
 async def process_image(image_request: ImageRequest):
     image = decode_image(image_request.image)
