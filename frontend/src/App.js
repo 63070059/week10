@@ -10,18 +10,23 @@ function App() {
   };
 
   const handleImageProcessing = async () => {
-    const formData = new FormData();
-    formData.append("processed_image", image);
-    formData.append('name', 'John');
-    formData.append('surname', 'Doe');
-    formData.append('numbers', JSON.stringify([1, 2, 3, 4, 5]));
-
-    try {
-      const response = await axios.post('http://3.85.108.108:8088/process-image', formData);
-      setProcessedImage(response.data.processed_image);
-    } catch (error) {
-      console.log(error);
-    }
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onloadend = async () => {
+      const base64data = reader.result;
+      const data = {
+        image: base64data,
+        name: 'John',
+        surname: 'Doe',
+        numbers: [1, 2, 3, 4, 5]
+      };
+      try {
+        const response = await axios.post('http://localhost:8088/process-image', data);
+        setProcessedImage(response.data.processed_image);
+      } catch (error) {
+        console.log(error);
+      }
+    };
   };
 
   return (
