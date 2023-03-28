@@ -17,7 +17,7 @@ function App() {
     formData.append('numbers', JSON.stringify([1, 2, 3, 4, 5]));
 
     try {
-      const response = await axios.post('http://3.85.108.108:8088', formData);
+      const response = await axios.post('http://3.85.108.108:8088/process-image', formData);
       setProcessedImage(response.data.processed_image);
     } catch (error) {
       console.log(error);
