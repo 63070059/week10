@@ -4,7 +4,7 @@ import axios from 'axios';
 function App() {
   const [image, setImage] = useState(null);
   const [processedImage, setProcessedImage] = useState(null);
-
+  
   const handleImageUpload = (event) => {
     setImage(event.target.files[0]);
   };
