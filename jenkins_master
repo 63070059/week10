@@ -70,6 +70,7 @@ pipeline {
         }
         stage('Push Images') {
             steps {
+                echo 'Pushing Images'
                 sh 'docker-compose -f ${DOCKER_COMPOSE_FILE} push'
             }
         }
