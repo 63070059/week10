@@ -5,6 +5,7 @@ pipeline {
         stage('test slvae') {
             steps {
                 echo 'Test Slave'
+                echo 'Test Slave 2'
             }
         }
     }
